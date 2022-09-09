@@ -1,0 +1,11 @@
+#Euclidian distane between two points with any number of dimenions
+def Dist(p,q):
+    sq_diff=0
+    for i,j in zip(p,q):
+        sq_diff+=(i-j)**2
+    return sq_diff**0.5
+
+c=(3,4,5)
+v=(6,7,8)
+
+print(Dist(c,v))
