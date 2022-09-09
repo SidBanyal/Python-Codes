@@ -1,0 +1,21 @@
+1.Generate a 3x3 random array
+2. Replace all the values less than 0.5 with 0
+
+x=np.random.random((3,3))
+
+print(x)
+
+print('--------------------------------------------')
+
+print('Updated Matrix')
+
+#Method 1: Using Loops
+
+for i in range(len(x)):
+    for j in range(len(x)):
+        if x[i,j]<0.5:
+            x[i,j]=0.5        
+print(x)
+
+# Alternate way: Pythonic Way!
+x[x<0.5]=0
