@@ -1,0 +1,9 @@
+class Solution(object):
+    def nearestValidPoint(self,x, y, points):
+        m=10000
+        b=-1
+        for i in range (len(points)):
+            if points[i][0]==x or points[i][1]==y:
+                if m>abs(x-points[i][0]+y-points[i][1]):
+                    m,b=abs(x-points[i][0]+ y-points[i][1]),i
+        return b
