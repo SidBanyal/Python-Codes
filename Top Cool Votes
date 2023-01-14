@@ -1,0 +1,8 @@
+# Import your libraries
+import pandas as pd
+
+# # Start writing code
+# yelp_reviews.head()
+
+# yelp_reviews[yelp_reviews['review_text']=='cool']
+yelp_reviews[['business_name', 'review_text']][yelp_reviews['cool'] == yelp_reviews['cool'].max()]
