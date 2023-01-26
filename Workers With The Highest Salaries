@@ -1,0 +1,5 @@
+worker.head()
+x=worker[['worker_id','salary']]
+y=pd.merge(x,title,how='left',left_on='worker_id',right_on='worker_ref_id')
+y['rank'] = y['salary'].rank(method='dense', ascending=False)
+y.loc[y['rank'] == 1, 'worker_title']
