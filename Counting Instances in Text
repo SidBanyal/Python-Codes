@@ -1,0 +1,10 @@
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+google_file_store.head()
+
+g=google_file_store
+bull=g['contents'].str.count('bull').sum()
+bear=g['contents'].str.count('bear').sum()
+pd.DataFrame([['bull',bull],['bear',bear]])
