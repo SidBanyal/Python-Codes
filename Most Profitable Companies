@@ -1,0 +1,7 @@
+# Import your libraries
+import pandas as pd
+# Start writing code
+forbes_global_2010_2014.head()
+y= forbes_global_2010_2014[['company','profits']]
+y=y.sort_values(by=['profits'], ascending=False)
+y.head(3)
