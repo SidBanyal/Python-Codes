@@ -1,0 +1,16 @@
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+
+# Selecting the Desired Columns
+df=orders[['id','cust_id','order_date','total_order_cost']]
+
+# Subsestting the Data
+df=df[(df['order_date']>='2019-03-01') & (df['order_date']<='2019-03-30')]
+
+# Grouping the data and displaying the result
+df2=df.groupby(['cust_id'])['total_order_cost'].sum().reset_index()
+
+df2=df2.sort_values(by=['total_order_cost'],ascending = False)
+
