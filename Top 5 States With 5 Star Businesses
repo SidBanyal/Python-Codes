@@ -1,0 +1,9 @@
+import pandas as pd
+
+# Start writing code
+x=yelp_business[yelp_business['stars']==5]
+x=x[['state','business_id']]
+y=x.groupby('state')['business_id'].count().reset_index()
+y.rename(columns={'business_id': 'n_businesses'}, inplace=True)
+y=y.sort_values(by=['n_businesses','state'], ascending= [False,True])
+y.nlargest(5,"n_businesses", keep="all")
