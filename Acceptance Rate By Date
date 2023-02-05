@@ -1,0 +1,16 @@
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+df_sent = fb_friend_requests[fb_friend_requests['action']=='sent']
+df_accept = fb_friend_requests[fb_friend_requests['action']=='accepted']
+
+# Left join df_sent with df_accept
+df_action = df_sent.merge(df_accept, how = 'left', on = ['user_id_sender', 'user_id_receiver'], suffixes = ['_sent', '_accept'])
+
+# group by date_sent to create a new table
+df_rate = df_action.groupby('date_sent').count().reset_index()
+
+# Calculate the rate
+df_rate['acceptance_rate'] = df_rate['action_accept']/df_rate['action_sent']
+df_rate[['date_sent', 'acceptance_rate']]
