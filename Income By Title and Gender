@@ -1,0 +1,11 @@
+import pandas as pd
+
+# Start writing code
+
+sf_bonus=sf_bonus.groupby('worker_ref_id').sum().reset_index()
+
+df=pd.merge(sf_employee,sf_bonus,left_on='id',right_on='worker_ref_id',how='inner')
+
+df['total'] = df['bonus']+df['salary']
+
+df.groupby(['employee_title','sex'])['total'].mean().reset_index()
